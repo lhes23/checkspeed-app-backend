@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-s**7%0+qv)-ob#uk_&55hc3zg!b6e#v2=aa@&x*0^ji#)8)%fm
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.100.30','ec2-13-214-186-33.ap-southeast-1.compute.amazonaws.com']
+ALLOWED_HOSTS = ['192.168.100.30','ec2-18-142-114-177.ap-southeast-1.compute.amazonaws.com']
 
 
 # Application definition
@@ -129,10 +129,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
-    'http://192.168.100.30:3000'
+    'http://192.168.100.30:3000',
+    'https://checkspeed-app-frontend.vercel.app'
 ]
 
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:3000',
-    'http://192.168.100.30:3000'
+    'http://192.168.100.30:3000',
+    'https://checkspeed-app-frontend.vercel.app'
 )
