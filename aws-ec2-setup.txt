@@ -1,0 +1,42 @@
+# Update ubuntu system
+sudo -i
+sudo apt-get update && sudo apt-get dist-upgrade
+
+# Database
+curl -sS https://downloads.mariadb.com/MariaDB/mariadb_repo_setup | sudo bash
+sudo apt install mariadb-server
+systemctl enable mariadb
+systemctl start mariadb
+mysql_secure_installation
+mysql -u root -p
+create database checkspeeddb;
+use checkspeeddb
+
+# Python
+# check is Python3 is installed
+python3 --version
+sudo apt-get install python3
+pip3 install django
+
+
+sudo apt-get install mysql-devel gcc gcc-devel python3-devel
+
+sudo apt-get install libmysqlclient-dev
+pip install mysql-connector-python
+sudo apt-get install mysql-server
+sudo apt-get install libmysqlclient-dev
+sudo apt-get install libmariadbclient-dev
+
+pip3 install mysqlclient
+
+# Repository
+git clone https://github.com/lhes23/checkspeed-app-backend.git
+cd checkspeed-app-backend
+create venv
+pip install -r requirements.txt
+python3 manage.py migrate
+
+add EC2 to ALLOWED_HOSTS
+enable port 8000 - go to instance security group and edit inbound rules
+add rule custom tcp port 8000
+python3 manage.py runserver 0.0.0.0:8000
